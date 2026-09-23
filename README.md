@@ -8,15 +8,15 @@
 
 ```
 Adafuse/
-├── GetRaw.py / GetRaw_DB5.py          # 读取 .mat，写入 HDF5
+├── GetRaw.py
 ├── Denoise/EMGFilter.py               # EMG 去噪滤波
-├── Preprocess/                        # 分段、标准化、降采样等
+├── Preprocess/DFactionSeg.py          # 分段、标准化、降采样等
 ├── feature/GetFeature.py              # Stockwell 时频特征 + PCA/LDA
 ├── Models/
 │   ├── PyTorchModels_improved.py      # 多分支 + 门控融合模型
-│   └── TrainModel/1EmgFeaTrain_finegate.py   # 主训练入口（示例）
+│   └── trainandtest.py                # 主训练入口
 ├── Util/                              # 数据划分、绘图、工具函数
-└── reparameterize_mobileone.py        # MobileOne 推理重参数化（可选）
+└──
 ```
 
 实验脚本、消融版本、预处理备份等见仓库内其他目录；**权重、训练曲线、混淆矩阵等结果默认不上传 Git**（见 `.gitignore`）。
@@ -24,8 +24,8 @@ Adafuse/
 ## 快速开始
 
 1. 准备 Ninapro 数据（本地路径在训练脚本中配置，如 `D:/DB4`）。
-2. 预处理：`GetRaw` → `EMGFilter` → `Preprocess/DFactionSeg` → `feature/GetFeature.py`。
-3. 训练：`python Models/TrainModel/1EmgFeaTrain_finegate.py`（按脚本内 `dataset`、`subject_range` 修改）。
+2. 预处理：`GetRaw` → `EMGFilter` → `Preprocess/DFactionSeg` → `feature/GetFeature.py` → `trainandtest.py `即可。
+3. 训练：`python Models/TrainModel/trainandtest.py`（按脚本内 参数 修改）。
 
 ## 环境
 
@@ -49,3 +49,6 @@ git push -u origin main
 
 - 数据集协议遵循 [Ninapro](https://ninapro.hevs.ch/) 公开基准。
 - 其他方法备份（能量核、VNet、SHAP 等）为历史实验，非主链路必需。
+- 主要文件就上面提到那些，其他的都不是那么重要。
+
+## 如果对您的研究有帮助，请动动您发财的小手，帮我点一个免费的star! 我会非常感谢
