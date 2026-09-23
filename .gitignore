@@ -1,0 +1,49 @@
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# 模型与 checkpoint（体积大，不上传）
+*.pth
+*.pt
+*.pkl
+*.onnx
+
+# 实验输出
+results_report*/
+results_*/
+**/results_ablation_*/
+**/results_cross_subject_*/
+**/results_report_*/
+analysis_results/
+*.png
+*.jpg
+*.jpeg
+!docs/**/*.png
+
+# 临时与中间数据
+temp_*.npy
+*.h5
+*.mat
+*.npy
+
+# 日志与表格导出
+*.log
+*.xlsx
+*.csv
+!Models/TrainModel/results_ablation_DTANet_DB4/comparison_table.csv
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 本地数据路径占位（勿提交真实数据）
+D:/DB*/
